@@ -20,7 +20,7 @@ import {
   AlertTitle,
 } from '@mui/material';
 import { useStore } from '../store';
-import type { ShiftAssignment, AvailabilityStatus } from '../types';
+import type { ShiftAssignment } from '../types';
 import Papa from 'papaparse';
 
 const ScheduleScreen = () => {
@@ -37,7 +37,6 @@ const ScheduleScreen = () => {
 
   const generateSchedule = () => {
     let bestAssignments: ShiftAssignment[] = [];
-    let foundValid = false;
     for (let attempt = 0; attempt < 100; attempt++) {
       const newAssignments: ShiftAssignment[] = [];
       const personShifts = new Map(persons.map((p) => [p.id, 0]));
@@ -170,7 +169,6 @@ const ScheduleScreen = () => {
       }
       if (allAssigned) {
         bestAssignments = newAssignments;
-        foundValid = true;
         break;
       }
       // Optionally, keep the best (most filled) schedule so far

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type { AppState, Person, ShiftSettings, Availability, ShiftAssignment } from '../types';
+import type { AppState, Person, ShiftSettings, ShiftAssignment } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
 interface StoreState extends AppState {
